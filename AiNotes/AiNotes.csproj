@@ -21,7 +21,7 @@
     <!-- Display name -->
     <ApplicationTitle>AiNotes</ApplicationTitle>
     <!-- App Identifier -->
-    <ApplicationId>com.companyname.ainotes</ApplicationId>
+    <ApplicationId>com.codedbykay.ainotes</ApplicationId>
     <ApplicationIdGuid>86d1c09f-5f98-4b75-898a-6d26d47e9d82</ApplicationIdGuid>
     <!-- Versions -->
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
