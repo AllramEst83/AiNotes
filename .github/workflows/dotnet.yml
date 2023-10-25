@@ -1,0 +1,95 @@
+name: Build .Net MAUI Android app
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: App Settings Variable Substitution
+      uses: microsoft/variable-substitution@v1
+      with:
+        files: 'AiNotes/appsettings.json'
+      env:
+        ApplicationSettings.DeveloperEmail: ${{ secrets.DEVELOPER_MAIL }}
+        ApplicationSettings.AppCenterSecret: ${{ secrets.APP_CENTER_SECRET }}
+        ApplicationSettings.AzureKeys.AzureSubscriptionKey: ${{ secrets.AZURE_SUBSCRIPTION_KEY }}       
+        ApplicationSettings.AzureKeys.AzureRegion: ${{ secrets.AZURE_REGION }}        
+        ApplicationSettings.ChatGptSettings.ApiKey: ${{ secrets.CHATGPT_APIKEY }}
+        ApplicationSettings.ChatGptSettings.EndPoint: ${{ secrets.CHATGPT_ENDPOINT }}
+        ApplicationSettings.ChatGptSettings.Model: ${{ secrets.CHATGPT_MODEL }}
+        ApplicationSettings.ChatGptSettings.TopP: ${{ secrets.CHATGPT_TOPP }}
+        ApplicationSettings.ChatGptSettings.Temperature: ${{ secrets.CHATGPT_TEMPERATURE }}
+        ApplicationSettings.ChatGptSettings.MaxTokens: ${{ secrets.CHATGPT_MAXTOKENS }}
+    
+    - name: Setup Keystore File 
+      shell: bash
+      run: |
+        echo "${{ secrets.KEYSTORE_FILE }}" > AiNotes/coded-by-kay.keystore.asc
+        echo "GPG Version:"
+        gpg --version
+        echo "Decrypting..."
+        gpg -d --passphrase "${{ secrets.KEYSTORE_PASSWORD_GPG }}" --batch AiNotes/coded-by-kay.keystore.asc > AiNotes/coded-by-kay.keystore
+        echo "Listing files in AiNotes directory:"
+        ls -l AiNotes
+        
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+        
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'microsoft'
+        java-version: '11'
+        
+    - name: Install .Net MAUI
+      shell: bash
+      run: |
+        dotnet workload install android
+        dotnet workload install maui
+    
+    - name: Restore dependencies
+      run: dotnet restore
+    
+    - name: Build
+      run: dotnet publish AiNotes/AiNotes.csproj -c Release -f net7.0-android /p:AndroidKeyStore=true /p:AndroidSigningKeyStore=${{secrets.KEYSTORE}} /p:AndroidSigningKeyAlias=${{ secrets.KEYSTORE_ALIAS }} /p:AndroidSigningKeyPass=${{ secrets.KEYSTORE_PASSWORD }} /p:AndroidSigningStorePass=${{ secrets.KEYSTORE_PASSWORD }} --no-restore
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        name: android-ci-build
+        path: AiNotes/bin/Release/net7.0-android/*Signed.aab*
+
+  appcenter:
+      needs: build
+      runs-on: ubuntu-latest
+      name: AppCenter Publish
+      
+      steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: android-ci-build
+
+      - name: List files in the artifact directory
+        run: ls -l ./ 
+
+      - name: Upload artifact to App Center
+        uses: wzieba/AppCenter-Github-Action@v1.3.4
+        with:
+          appName: kaywib/AiNotes
+          token: ${{secrets.APP_CENTER_SECRET}}
+          group: Testers
+          file: ./com.codedbykay.ainotes-Signed.aab
+          notifyTesters: true
+          debug: false
