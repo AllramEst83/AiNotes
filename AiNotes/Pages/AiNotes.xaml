@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:AiNotes.ViewModels"
+             xmlns:converters="clr-namespace:AiNotes.Converters"
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+              xmlns:translator="clr-namespace:AiNotes.Exstensions"
+             Title="{translator:Translate NotesTitle}"
+             x:Class="AiNotes.Pages.AiNotesPage" >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Animation View -->
+        <skia:SKLottieView
+    Grid.Row="0"
+    Grid.RowSpan="2"
+    IsAnimationEnabled="{Binding AnimationIsActive}"
+    IsVisible="{Binding AnimationIsActive}"
+    Source="lottieanimation.json"
+    RepeatCount="-1"
+    RepeatMode="Restart"
+    HeightRequest="350"
+    WidthRequest="350"
+    HorizontalOptions="Center"
+    VerticalOptions="Center" />
+
+        <!-- Start Button -->
+        <Button
+    Grid.Row="0"
+    Grid.RowSpan="2"
+    Style="{StaticResource DefaultButtonStyle}"
+    Text="{Binding ButtonText}"
+    Command="{Binding ToggleTranscriptionCommand}"
+    HorizontalOptions="Center"
+    VerticalOptions="Center"
+    IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"
+    WidthRequest="160"
+    HeightRequest="160"
+    CornerRadius="80"/>
+
+        <!-- Activity Indicator -->
+        <ActivityIndicator 
+    Grid.Row="0"
+    Grid.RowSpan="2"
+    WidthRequest="310"
+    HeightRequest="310"
+    IsVisible="{Binding IsBusy}"
+    IsRunning="{Binding IsBusy}"
+    HorizontalOptions="Center"
+    VerticalOptions="Center" />
+
+        <!-- Token Counter -->
+        <Label
+    Grid.Row="0"
+    Grid.Column="1"
+    Text="{Binding TokenCounterDisplay}"
+    HorizontalOptions="Center"
+    VerticalOptions="Start"
+    Padding="10"
+    BackgroundColor="{StaticResource Secondary}"
+    TextColor="Black"/>
+
+        <!-- Reset Button -->
+        <Button
+    Grid.Row="1"
+    Style="{StaticResource ResetButtonStyle}"
+    VerticalOptions="End"
+    HorizontalOptions="End"
+    Command="{Binding ResetCommand}"
+    Text="Reset"
+    WidthRequest="50"
+    HeightRequest="50">
+        </Button>
+    </Grid>
+
+</ContentPage>

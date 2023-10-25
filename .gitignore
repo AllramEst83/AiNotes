@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Local appsettings for development
+appsettings.Local.json
+
+#Keystore file
+coded-by-kay.keystore

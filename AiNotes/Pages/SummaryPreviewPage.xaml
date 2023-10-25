@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AiNotes.Pages.SummaryPreviewPage"
+             Title="SummaryPreviewPage"
+             xmlns:local="clr-namespace:AiNotes.Controls">
+
+
+    <Grid RowSpacing="0">
+        <!-- Define rows -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Close button -->
+        <Button Text="X" 
+                HorizontalOptions="End" 
+                VerticalOptions="Start" 
+                Command="{Binding GoBackCommand}" 
+                WidthRequest="40" 
+                HeightRequest="40" 
+                Margin="0,10,10,0" 
+                BackgroundColor="Transparent" 
+                TextColor="Black" />
+
+        <!-- MarkdownWebView -->
+        <local:MarkdownWebView Grid.Row="1" 
+                               Markdown="{Binding MarkdownPreview}" 
+                               Margin="0,10,0,0" />
+    </Grid>
+
+</ContentPage>

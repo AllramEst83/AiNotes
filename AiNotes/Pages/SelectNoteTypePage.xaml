@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AiNotes.Pages.SelectNoteTypePage"
+             Title="SelectNoteTypePage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout
+        Grid.Row="1"
+        VerticalOptions="Center"
+        HorizontalOptions="Center"
+        Spacing="10">
+            <!-- Adjust spacing as needed -->
+
+            <!-- Picker -->
+            <Picker
+            x:Name="MeetingTypePicker"
+            Title="Välj typ av anteckningar"
+            WidthRequest="350"
+            ItemsSource="{Binding MeetingTypes}"
+            SelectedItem="{Binding SelectedItem, Mode=TwoWay}" />
+
+            <!-- OK Button -->
+            <Button
+            Text="Ok"
+            Command="{Binding SelectMeetingTypeCommand}"    
+            WidthRequest="150"
+            HeightRequest="50">
+            </Button>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
