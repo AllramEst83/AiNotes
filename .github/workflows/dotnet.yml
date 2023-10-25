@@ -33,11 +33,11 @@ jobs:
     - name: Setup Keystore File 
       shell: bash
       run: |
-        echo "${{ secrets.KEYSTORE_FILE }}" > AiNotes/coded-by-kay.keystore.asc
+        echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > AiNotes/coded-by-kay.keystore.gpg
         echo "GPG Version:"
         gpg --version
         echo "Decrypting..."
-        gpg -d --passphrase "${{ secrets.KEYSTORE_PASSWORD_GPG }}" --batch AiNotes/coded-by-kay.keystore.asc > AiNotes/coded-by-kay.keystore
+        gpg -d --passphrase "${{ secrets.KEYSTORE_PASSWORD_GPG }}" --batch AiNotes/coded-by-kay.keystore.gpg > AiNotes/coded-by-kay.keystore
         echo "Listing files in AiNotes directory:"
         ls -l AiNotes
         
