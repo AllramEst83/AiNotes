@@ -90,6 +90,6 @@ jobs:
           appName: kaywib/AiNotes
           token: ${{secrets.APP_CENTER_SECRET}}
           group: Testers
-          file: ./com.codedbykay.neuronnexus-Signed.aab
+          file: ./com.codedbykay.ainotes-Signed.aab
           notifyTesters: true
           debug: false
