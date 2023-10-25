@@ -44,15 +44,6 @@
     <EmbeddedResource Remove="Resources\Languages\AppResources.sv.resx" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="appsettings.Local.json" />
-    <None Remove="Resources\Raw\lottieanimation.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="appsettings.Local.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Languages\AppResources.sv.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
