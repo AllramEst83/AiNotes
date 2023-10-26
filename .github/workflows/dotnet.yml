@@ -29,19 +29,6 @@ jobs:
         ApplicationSettings.ChatGptSettings.TopP: ${{ secrets.CHATGPT_TOPP }}
         ApplicationSettings.ChatGptSettings.Temperature: ${{ secrets.CHATGPT_TEMPERATURE }}
         ApplicationSettings.ChatGptSettings.MaxTokens: ${{ secrets.CHATGPT_MAXTOKENS }}
-
-    - name: Echo Variables
-      run: |
-        echo "ApplicationSettings.DeveloperEmail: ${{ secrets.DEVELOPER_MAIL }}"
-        echo "ApplicationSettings.AppCenterSecret: ${{ secrets.APP_CENTER_SECRET }}"
-        echo "ApplicationSettings.AzureKeys.AzureSubscriptionKey: ${{ secrets.AZURE_SUBSCRIPTION_KEY }}"
-        echo "ApplicationSettings.AzureKeys.AzureRegion: ${{ secrets.AZURE_REGION }}"
-        echo "ApplicationSettings.ChatGptSettings.ApiKey: ${{ secrets.CHATGPT_APIKEY }}"
-        echo "ApplicationSettings.ChatGptSettings.EndPoint: ${{ secrets.CHATGPT_ENDPOINT }}"
-        echo "ApplicationSettings.ChatGptSettings.Model: ${{ secrets.CHATGPT_MODEL }}"
-        echo "ApplicationSettings.ChatGptSettings.TopP: ${{ secrets.CHATGPT_TOPP }}"
-        echo "ApplicationSettings.ChatGptSettings.Temperature: ${{ secrets.CHATGPT_TEMPERATURE }}"
-        echo "ApplicationSettings.ChatGptSettings.MaxTokens: ${{ secrets.CHATGPT_MAXTOKENS }}"
     
     - name: Setup Keystore File 
       shell: bash
