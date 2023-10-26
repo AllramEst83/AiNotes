@@ -1,6 +1,5 @@
 using AiNotes.ViewModels;
-using CommunityToolkit.Maui.Alerts;
-
+using Newtonsoft.Json;
 namespace AiNotes.Pages;
 
 public partial class AiNotesPage : ContentPage
@@ -27,7 +26,13 @@ public partial class AiNotesPage : ContentPage
         catch (Exception ex)
         {
 
-            await Toast.Make(ex.Message, CommunityToolkit.Maui.Core.ToastDuration.Long).Show(CancellationToken.None);
+            var spokenText = JsonConvert.SerializeObject(ex.StackTrace);
+            string destination = $"{nameof(AiNotesSummaryPage)}?spokenText={Uri.EscapeDataString(spokenText)}";
+
+            await MainThread.InvokeOnMainThreadAsync(async () =>
+            {
+                await Shell.Current.GoToAsync(destination);
+            });
         }
 
     

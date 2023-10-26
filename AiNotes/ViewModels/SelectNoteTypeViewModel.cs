@@ -41,7 +41,13 @@ namespace AiNotes.ViewModels
                 catch (Exception ex)
                 {
 
-                   await Toast.Make(ex.Message, CommunityToolkit.Maui.Core.ToastDuration.Long).Show(CancellationToken.None);
+                    var spokenText = JsonConvert.SerializeObject(ex.StackTrace);
+                    string destination = $"{nameof(AiNotesSummaryPage)}?spokenText={Uri.EscapeDataString(spokenText)}";
+
+                    await MainThread.InvokeOnMainThreadAsync(async () =>
+                    {
+                        await Shell.Current.GoToAsync(destination);
+                    });
                 }
 
     
