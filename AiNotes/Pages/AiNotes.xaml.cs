@@ -19,23 +19,7 @@ public partial class AiNotesPage : ContentPage
     {
         base.OnAppearing();
 
-        try
-        {
-            await viewModel.Initiate();
-        }
-        catch (Exception ex)
-        {
-
-            var spokenText = JsonConvert.SerializeObject(ex.StackTrace);
-            string destination = $"{nameof(AiNotesSummaryPage)}?spokenText={Uri.EscapeDataString(spokenText)}";
-
-            await MainThread.InvokeOnMainThreadAsync(async () =>
-            {
-                await Shell.Current.GoToAsync(destination);
-            });
-        }
-
-    
+        await viewModel.Initiate();
     }
 
     protected override void OnDisappearing()
