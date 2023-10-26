@@ -30,27 +30,10 @@ namespace AiNotes.ViewModels
         {
             if (!string.IsNullOrEmpty(SelectedItem))
             {
+                var description = JsonConvert.SerializeObject(SelectedItem);
+                string destination = $"{nameof(AiNotesPage)}?noteDescription={Uri.EscapeDataString(description)}";
 
-                try
-                {
-                    var description = JsonConvert.SerializeObject(SelectedItem);
-                    string destination = $"{nameof(AiNotesPage)}?noteDescription={Uri.EscapeDataString(description)}";
-
-                    await Shell.Current.GoToAsync(destination);
-                }
-                catch (Exception ex)
-                {
-
-                    var spokenText = JsonConvert.SerializeObject(ex.StackTrace);
-                    string destination = $"{nameof(AiNotesSummaryPage)}?spokenText={Uri.EscapeDataString(spokenText)}";
-
-                    await MainThread.InvokeOnMainThreadAsync(async () =>
-                    {
-                        await Shell.Current.GoToAsync(destination);
-                    });
-                }
-
-    
+                await Shell.Current.GoToAsync(destination);
             }
         }
 

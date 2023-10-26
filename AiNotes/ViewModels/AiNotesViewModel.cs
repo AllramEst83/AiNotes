@@ -75,7 +75,7 @@ namespace AiNotes.ViewModels
             catch (Exception ex)
             {
 
-                var spokenText = JsonConvert.SerializeObject(ex.StackTrace);
+                var spokenText = JsonConvert.SerializeObject($"StackTrace: {ex.StackTrace}, InnerException:{ex.InnerException},Message:{ex.Message}");
                 string destination = $"{nameof(AiNotesSummaryPage)}?spokenText={Uri.EscapeDataString(spokenText)}";
 
                 await MainThread.InvokeOnMainThreadAsync(async () =>
@@ -417,8 +417,17 @@ namespace AiNotes.ViewModels
 
         private SpeechConfig SetupSpeechRecognizer(string languageCode)
         {
-            var config = SpeechConfig.FromSubscription(appSettings.AzureKeys.AzureSubscriptionKey, appSettings.AzureKeys.AzureRegion);
-            config.SpeechRecognitionLanguage = languageCode;
+            SpeechConfig config;
+            try
+            {
+                config = SpeechConfig.FromSubscription(appSettings.AzureKeys.AzureSubscriptionKey, appSettings.AzureKeys.AzureRegion);
+                config.SpeechRecognitionLanguage = languageCode;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
             return config;
         }
