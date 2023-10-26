@@ -1,4 +1,5 @@
 using AiNotes.ViewModels;
+using CommunityToolkit.Maui.Alerts;
 
 namespace AiNotes.Pages;
 
@@ -15,11 +16,21 @@ public partial class AiNotesPage : ContentPage
         BindingContext = viewModel;
     }
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
 
-        viewModel.Initiate();
+        try
+        {
+            await viewModel.Initiate();
+        }
+        catch (Exception ex)
+        {
+
+            await Toast.Make(ex.Message, CommunityToolkit.Maui.Core.ToastDuration.Long).Show(CancellationToken.None);
+        }
+
+    
     }
 
     protected override void OnDisappearing()

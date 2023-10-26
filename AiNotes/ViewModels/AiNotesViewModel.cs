@@ -66,9 +66,17 @@ namespace AiNotes.ViewModels
 #endif
         }
 
-        public void Initiate()
+        public async Task Initiate()
         {
-            SetupRecognizer("sv-SE");
+            try
+            {
+                SetupRecognizer("sv-SE");
+            }
+            catch (Exception ex)
+            {
+
+               await Toast.Make(ex.Message, CommunityToolkit.Maui.Core.ToastDuration.Long).Show(CancellationToken.None);
+            }
         }
 
         [RelayCommand]
