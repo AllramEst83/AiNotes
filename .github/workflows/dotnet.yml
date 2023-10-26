@@ -1,8 +1,6 @@
 name: Build .Net MAUI Android app
 
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
   workflow_dispatch: # Manual trigger
