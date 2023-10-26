@@ -13,7 +13,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid>
+    <Grid  BackgroundColor="{StaticResource Primary}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
@@ -21,17 +21,17 @@
 
         <!-- Animation View -->
         <skia:SKLottieView
-    Grid.Row="0"
-    Grid.RowSpan="2"
-    IsAnimationEnabled="{Binding AnimationIsActive}"
-    IsVisible="{Binding AnimationIsActive}"
-    Source="lottieanimation.json"
-    RepeatCount="-1"
-    RepeatMode="Restart"
-    HeightRequest="350"
-    WidthRequest="350"
-    HorizontalOptions="Center"
-    VerticalOptions="Center" />
+        Grid.Row="0"
+        Grid.RowSpan="2"
+        IsAnimationEnabled="{Binding AnimationIsActive}"
+        IsVisible="{Binding AnimationIsActive}"
+        Source="lottieanimation.json"
+        RepeatCount="-1"
+        RepeatMode="Restart"
+        HeightRequest="350"
+        WidthRequest="350"
+        HorizontalOptions="Center"
+        VerticalOptions="Center" />
 
         <!-- Start Button -->
         <Button
@@ -59,15 +59,27 @@
     VerticalOptions="Center" />
 
         <!-- Token Counter -->
-        <Label
-    Grid.Row="0"
-    Grid.Column="1"
-    Text="{Binding TokenCounterDisplay}"
-    HorizontalOptions="Center"
-    VerticalOptions="Start"
-    Padding="10"
-    BackgroundColor="{StaticResource Secondary}"
-    TextColor="Black"/>
+
+        <Border 
+        Stroke="#bffdbf"
+        StrokeThickness="0"
+        StrokeShape="RoundRectangle 10,10,10,10"
+        Background="#2B0B98"
+        Padding="0"
+        HorizontalOptions="Center"
+        VerticalOptions="Start">
+
+            <Label
+               Grid.Row="0"
+               Grid.Column="1"
+               Text="{Binding TokenCounterDisplay}"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               Padding="10"
+               BackgroundColor="#fdfdbf"
+               TextColor="Black"/>
+        </Border>
+ 
 
         <!-- Reset Button -->
         <Button

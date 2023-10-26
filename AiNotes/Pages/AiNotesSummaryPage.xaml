@@ -5,7 +5,7 @@
              xmlns:translator="clr-namespace:AiNotes.Exstensions"
              Title="{translator:Translate NotesSummary}">
 
-    <Grid>
+    <Grid BackgroundColor="{StaticResource Primary}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
@@ -27,6 +27,7 @@
             HorizontalOptions="Center"
             VerticalOptions="Center"
             Grid.Column="0" 
+                    BackgroundColor="{StaticResource PrimaryAccentTwo}"
             TextColor="{StaticResource Black}"/>
 
             <!-- Show Preview Button -->
@@ -36,6 +37,7 @@
             HorizontalOptions="Center"
             VerticalOptions="Center"
             Grid.Column="1" 
+                BackgroundColor="{StaticResource PrimaryAccentTwo}"
             TextColor="{StaticResource Black}"/>
         </Grid>
     </Grid>

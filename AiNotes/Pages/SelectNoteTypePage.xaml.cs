@@ -43,4 +43,9 @@ public partial class SelectNoteTypePage : ContentPage
 
         viewModel.Reset();
     }
+
+    private void MeetingTypePicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        viewModel.OnPickerChange();
+    }
 }

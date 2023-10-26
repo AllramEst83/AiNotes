@@ -1,4 +1,5 @@
 ﻿using AiNotes.Models;
+using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Newtonsoft.Json;
@@ -53,9 +54,11 @@ namespace AiNotes.ViewModels
         }
 
         [RelayCommand]
-        private void CopyToClipboard()
+        private async Task CopyToClipboard()
         {
-            Clipboard.SetTextAsync(RawMarkdownText);
+           await Clipboard.SetTextAsync(RawMarkdownText);
+
+           await Toast.Make("Text has been copied to clipboard.", CommunityToolkit.Maui.Core.ToastDuration.Long).Show(CancellationToken.None); ;
         }
     }
 }

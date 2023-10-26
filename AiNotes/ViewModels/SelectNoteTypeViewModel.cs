@@ -12,6 +12,8 @@ namespace AiNotes.ViewModels
     {
         [ObservableProperty]
         string selectedItem = null;
+        [ObservableProperty]
+        bool isEnabled = false;
         public ObservableCollection<string> MeetingTypes { get; } = new ObservableCollection<string>
         {
             NoteType.FrittAntecknande.GetDescription(),
@@ -31,6 +33,14 @@ namespace AiNotes.ViewModels
                 string destination = $"{nameof(AiNotesPage)}?noteDescription={Uri.EscapeDataString(description)}";
 
                 await Shell.Current.GoToAsync(destination);
+            }
+        }
+
+        public void OnPickerChange()
+        {
+            if (!string.IsNullOrEmpty(SelectedItem))
+            {
+                IsEnabled = true;
             }
         }
 

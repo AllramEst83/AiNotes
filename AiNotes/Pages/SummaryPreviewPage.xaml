@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:AiNotes.Controls">
 
 
-    <Grid RowSpacing="0">
+    <Grid RowSpacing="0" BackgroundColor="{StaticResource PrimaryAccentTwo}">
         <!-- Define rows -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

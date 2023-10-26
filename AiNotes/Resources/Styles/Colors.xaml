@@ -4,9 +4,51 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Color x:Key="Primary">#512BD4</Color>
-    <Color x:Key="Secondary">#DFD8F7</Color>
-    <Color x:Key="Tertiary">#2B0B98</Color>
+    <!--AppColor-->
+    <Color x:Key="Color1">#f3a683</Color>
+    <Color x:Key="Color2">#f7d794</Color>
+    <Color x:Key="Color3">#778beb</Color>
+    <Color x:Key="Color4">#e77f67</Color>
+    <Color x:Key="Color5">#cf6a87</Color>
+    <Color x:Key="Color6">#f19066</Color>
+    <Color x:Key="Color7">#f5cd79</Color>
+    <Color x:Key="Color8">#546de5</Color>
+    <Color x:Key="Color9">#e15f41</Color>
+    <Color x:Key="Color10">#c44569</Color>
+    <Color x:Key="Color11">#786fa6</Color>
+    <Color x:Key="Color12">#f8a5c2</Color>
+    <Color x:Key="Color13">#63cdda</Color>
+    <Color x:Key="Color14">#ea8685</Color>
+    <Color x:Key="Color15">#596275</Color>
+    <Color x:Key="Color16">#574b90</Color>
+    <Color x:Key="Color17">#f78fb3</Color>
+    <Color x:Key="Color18">#3dc1d3</Color>
+    <Color x:Key="Color19">#e66767</Color>
+    <Color x:Key="Color20">#303952</Color>
+    <!--AppColor-->
+
+    <!--ChatColors-->
+    <Color x:Key="chatColorsUserOne">#b7e7ed</Color>
+    <Color x:Key="chatSpokenTextOne">#c3dbdf</Color>
+    <Color x:Key="chatColorsUserTwo">#edcad4</Color>
+    <Color x:Key="chatSpokenTextTwo">#f0dbe1</Color>
+    <!--ChatColors-->
+
+    <!--Main app colors-->
+    <Color x:Key="Primary">#FDBEC1</Color>
+    <Color x:Key="Secondary">#fa6b72</Color>
+    <Color x:Key="Tertiary">#778beb</Color>
+    <!--Divider--> 
+    <Color x:Key="PrimaryAccent">#36F22E</Color>
+    <Color x:Key="PrimaryAccentTwo">#bffdbf</Color>
+    <Color x:Key="PrimaryAccentThree">#bfedfd</Color>
+    <Color x:Key="SecondaryAccent">#8EFEED</Color>
+    <Color x:Key="TertiaryAccent">#0057c7</Color>
+
+    <Color x:Key="HyperLinkBlue">#3366CC</Color>
+    <Color x:Key="PickerText">#f2407e</Color>
+    <!--Main app colors-->
+
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="Gray100">#E1E1E1</Color>
@@ -17,11 +59,18 @@
     <Color x:Key="Gray600">#404040</Color>
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
+
+    <!--Main app brushes-->
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
+    <!--Main app brushes-->
+
     <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
     <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
+
+    <SolidColorBrush x:Key="dynamicBackgroundColor" Color="{StaticResource Secondary}"/>
+
     <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
     <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>
     <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}"/>
