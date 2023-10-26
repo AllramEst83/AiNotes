@@ -5,6 +5,7 @@ using AiNotes.Models;
 using AiNotes.Pages;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
+using CommunityToolkit.Maui.Alerts;
 
 namespace AiNotes.ViewModels
 {
@@ -29,10 +30,21 @@ namespace AiNotes.ViewModels
         {
             if (!string.IsNullOrEmpty(SelectedItem))
             {
-                var description = JsonConvert.SerializeObject(SelectedItem);
-                string destination = $"{nameof(AiNotesPage)}?noteDescription={Uri.EscapeDataString(description)}";
 
-                await Shell.Current.GoToAsync(destination);
+                try
+                {
+                    var description = JsonConvert.SerializeObject(SelectedItem);
+                    string destination = $"{nameof(AiNotesPage)}?noteDescription={Uri.EscapeDataString(description)}";
+
+                    await Shell.Current.GoToAsync(destination);
+                }
+                catch (Exception ex)
+                {
+
+                   await Toast.Make(ex.Message, CommunityToolkit.Maui.Core.ToastDuration.Long).Show(CancellationToken.None);
+                }
+
+    
             }
         }
 
