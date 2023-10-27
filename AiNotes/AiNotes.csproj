@@ -53,10 +53,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Remove="Resources\Languages\AppResources.sv.resx" />
-  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Languages\AppResources.sv.resx">
       <Generator>ResXFileCodeGenerator</Generator>

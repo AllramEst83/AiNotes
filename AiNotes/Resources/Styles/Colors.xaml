@@ -46,7 +46,7 @@
     <Color x:Key="TertiaryAccent">#0057c7</Color>
 
     <Color x:Key="HyperLinkBlue">#3366CC</Color>
-    <Color x:Key="PickerText">#f2407e</Color>
+    <Color x:Key="PickerText">#bffdbf</Color>
     <!--Main app colors-->
 
     <Color x:Key="White">White</Color>

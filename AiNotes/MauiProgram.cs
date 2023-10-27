@@ -68,7 +68,7 @@ configFileName = "AiNotes.appsettings.json";
            .AddSingleton<AiNotesSummaryViewModel>()
            .AddSingleton<SelectNoteTypeViewModel>()
            .AddSingleton<SummaryPreviewViewModel>();
-           
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

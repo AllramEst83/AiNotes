@@ -141,6 +141,9 @@
   <data name="NotesTitle" xml:space="preserve">
     <value>Ai anteckningar</value>
   </data>
+  <data name="NoteTypeTitle" xml:space="preserve">
+    <value>Anteckningstyp</value>
+  </data>
   <data name="NoTextFromResponse" xml:space="preserve">
     <value>### &lt;span style="color:red; font-weight:bold;"&gt;Det fanns ingen text att summera eller så har det uppståt ett fel.&lt;/span&gt;</value>
   </data>

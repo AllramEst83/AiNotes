@@ -61,7 +61,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 75% av polletterna har använts. Avsluta konversationen..
+        ///   Looks up a localized string similar to 75% of the tokens have been used. End the conversation..
         /// </summary>
         internal static string _75ProcentTokenLimitMessage {
             get {
@@ -70,7 +70,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Om oss.
+        ///   Looks up a localized string similar to About us.
         /// </summary>
         internal static string About {
             get {
@@ -79,7 +79,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to App språket du valt har uppdaterats..
+        ///   Looks up a localized string similar to The app language has been updated.
         /// </summary>
         internal static string AppLanguagesSet {
             get {
@@ -97,7 +97,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tolken.
+        ///   Looks up a localized string similar to Interpreter.
         /// </summary>
         internal static string InterpreterTitle {
             get {
@@ -106,7 +106,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Inget internet! Vänligen koppla upp dig mot internet..
+        ///   Looks up a localized string similar to No internet! Please connect to the internet..
         /// </summary>
         internal static string NoInternetConnection {
             get {
@@ -115,7 +115,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Antecknings summering.
+        ///   Looks up a localized string similar to Note summery.
         /// </summary>
         internal static string NotesSummary {
             get {
@@ -124,7 +124,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ai anteckningar.
+        ///   Looks up a localized string similar to Ai notes.
         /// </summary>
         internal static string NotesTitle {
             get {
@@ -133,7 +133,16 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ### &lt;span style=&quot;color:red; font-weight:bold;&quot;&gt;Det fanns ingen text att summera eller så har det uppståt ett fel.&lt;/span&gt;.
+        ///   Looks up a localized string similar to Note type.
+        /// </summary>
+        internal static string NoteTypeTitle {
+            get {
+                return ResourceManager.GetString("NoteTypeTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ### &lt;span style=&quot;color:red; font-weight:bold;&quot;&gt;An error has occured. There was nothing to summarize&lt;/span&gt;.
         /// </summary>
         internal static string NoTextFromResponse {
             get {
@@ -142,7 +151,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Välj de språk du föredrar..
+        ///   Looks up a localized string similar to Select desired language.
         /// </summary>
         internal static string PreferredLanguage {
             get {
@@ -151,7 +160,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Välj appens språk.
+        ///   Looks up a localized string similar to Select the application language.
         /// </summary>
         internal static string SelectAppLangugae {
             get {
@@ -160,7 +169,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Välj språk.
+        ///   Looks up a localized string similar to Select language.
         /// </summary>
         internal static string SelectLanguages {
             get {
@@ -169,7 +178,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Inställningar.
+        ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string Settings {
             get {
@@ -178,7 +187,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dela kraschlog.
+        ///   Looks up a localized string similar to Share crash log.
         /// </summary>
         internal static string ShareCrashLog {
             get {
@@ -205,7 +214,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Summerar....
+        ///   Looks up a localized string similar to Summarizing....
         /// </summary>
         internal static string Summarizing {
             get {
@@ -214,7 +223,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tema väljare.
+        ///   Looks up a localized string similar to Theme selector.
         /// </summary>
         internal static string ThemeSelector {
             get {
@@ -223,7 +232,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to polletter kvar.
+        ///   Looks up a localized string similar to tokens left.
         /// </summary>
         internal static string TokenDisplay {
             get {
@@ -232,7 +241,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hur du använder appen.
+        ///   Looks up a localized string similar to How to use the application.
         /// </summary>
         internal static string Tutorial {
             get {
@@ -241,7 +250,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Instruktioner.
+        ///   Looks up a localized string similar to Instructions.
         /// </summary>
         internal static string TutorialTitle {
             get {

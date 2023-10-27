@@ -56,9 +56,9 @@ namespace AiNotes.ViewModels
         [RelayCommand]
         private async Task CopyToClipboard()
         {
-           await Clipboard.SetTextAsync(RawMarkdownText);
+            await Clipboard.SetTextAsync(RawMarkdownText);
 
-           await Toast.Make("Text has been copied to clipboard.", CommunityToolkit.Maui.Core.ToastDuration.Long).Show(CancellationToken.None); ;
+            await Toast.Make("Text has been copied to clipboard.", CommunityToolkit.Maui.Core.ToastDuration.Long).Show(CancellationToken.None); ;
         }
     }
 }
