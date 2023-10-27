@@ -19,8 +19,8 @@ jobs:
       env:
         ApplicationSettings.DeveloperEmail: ${{ secrets.DEVELOPER_MAIL }}
         ApplicationSettings.AppCenterSecret: ${{ secrets.APP_CENTER_SECRET }}
-        ApplicationSettings.AzureKeys.AzureSubscriptionKey: ${{ secrets.AZURE_SUBSCRIPTION_KEY }}       
-        ApplicationSettings.AzureKeys.AzureRegion: ${{ secrets.AZURE_REGION }}        
+        ApplicationSettings.AzureKeys.AzureSubscriptionKey: ${{ secrets.AZURESUBSCRIPTIONKEY }}       
+        ApplicationSettings.AzureKeys.AzureRegion: ${{ secrets.AZUREREGION }}        
         ApplicationSettings.ChatGptSettings.ApiKey: ${{ secrets.CHATGPT_APIKEY }}
         ApplicationSettings.ChatGptSettings.EndPoint: ${{ secrets.CHATGPT_ENDPOINT }}
         ApplicationSettings.ChatGptSettings.Model: ${{ secrets.CHATGPT_MODEL }}
