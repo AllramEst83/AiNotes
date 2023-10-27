@@ -42,3 +42,20 @@ To develop locally, you will need to create an `appsettings.Local.json` file and
     }
   }
 }
+```
+
+## ToDo
+
+#### Life Cycle in `App.xaml.cs` (and then in all components)
+- [ ] `OnSleep`
+- [ ] `OnResume`
+- [ ] `OnConnectivityChanged`
+
+#### Component Level
+- [ ] `OnAppearing`
+- [ ] `OnDisappearing`
+- [ ] `OnConnectivityChanged`
+
+#### Additional Features
+- [ ] Add multiple language support (English)
+
