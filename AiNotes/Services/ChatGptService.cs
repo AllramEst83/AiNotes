@@ -1,5 +1,6 @@
 ﻿
 
+using AiNotes.Managers;
 using AiNotes.Mappers;
 using AiNotes.Models;
 using Microsoft.Extensions.Options;
@@ -11,13 +12,13 @@ namespace AiNotes.Services
     public interface IChatGptService
     {
         Task<string> GetResponseAsync(string transcription);
-        void SetNoteTypeInstructions(string noteInstruction);
+        void SetNoteTypeInstructions(NoteType noteType);
     }
     public class ChatGptService : IChatGptService
     {
         private readonly AppSettings appSettings;
         private readonly HttpClient _httpClient;
-        private string noteTypeInstructions;
+        private NoteType noteType;
 
         public ChatGptService(IOptions<AppSettings> appSettings)
         {
@@ -26,22 +27,22 @@ namespace AiNotes.Services
             _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {this.appSettings.ChatGptSettings.ApiKey}");
         }
 
-        public void SetNoteTypeInstructions(string noteInstruction)
+        public void SetNoteTypeInstructions(NoteType noteType)
         {
-            //Map noteInstructions to the actual note description
-
-            noteTypeInstructions = noteInstruction;
+            this.noteType = noteType;
         }
 
         public async Task<string> GetResponseAsync(string transcription)
         {
-            var description = NoteTypeMapper.GetDescription(noteTypeInstructions);
+            var language = LocalizationResourceManager.Instance.GetCurrentCulture();
+
+            var instruction = NoteTypeMapper.GetInstruction(noteType, language);
 
             var requestPayload = new
             {
                 messages = new[]
                 {
-                    new { role = "system", content = description },
+                    new { role = "system", content = instruction },
                     new { role = "user", content = transcription }
                 },
                 max_tokens = appSettings.ChatGptSettings.MaxTokens,
@@ -49,7 +50,6 @@ namespace AiNotes.Services
                 top_p = appSettings.ChatGptSettings.TopP,
                 model = appSettings.ChatGptSettings.Model
             };
-
 
             var jsonPayload = Newtonsoft.Json.JsonConvert.SerializeObject(requestPayload);
             var httpContent = new StringContent(jsonPayload, Encoding.UTF8, "application/json");

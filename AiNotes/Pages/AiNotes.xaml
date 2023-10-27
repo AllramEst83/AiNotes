@@ -37,7 +37,7 @@
         <Button
     Grid.Row="0"
     Grid.RowSpan="2"
-    Style="{StaticResource DefaultButtonStyle}"
+    Style="{StaticResource SummaryButtonStyle}"
     Text="{Binding ButtonText}"
     Command="{Binding ToggleTranscriptionCommand}"
     HorizontalOptions="Center"

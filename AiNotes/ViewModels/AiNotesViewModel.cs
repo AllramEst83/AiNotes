@@ -20,7 +20,7 @@ namespace AiNotes.ViewModels
         {
             set
             {
-                var noteDescription = JsonConvert.DeserializeObject<string>(Uri.UnescapeDataString(value));
+                var noteDescription = JsonConvert.DeserializeObject<NoteType>(Uri.UnescapeDataString(value));
 
                 chatGptService.SetNoteTypeInstructions(noteDescription);
             }
@@ -66,23 +66,9 @@ namespace AiNotes.ViewModels
 #endif
         }
 
-        public async Task Initiate()
+        public void Initiate()
         {
-            try
-            {
-                SetupRecognizer("sv-SE");
-            }
-            catch (Exception ex)
-            {
-
-                var spokenText = JsonConvert.SerializeObject($"StackTrace: {ex.StackTrace}, InnerException:{ex.InnerException},Message:{ex.Message}");
-                string destination = $"{nameof(AiNotesSummaryPage)}?spokenText={Uri.EscapeDataString(spokenText)}";
-
-                await MainThread.InvokeOnMainThreadAsync(async () =>
-                {
-                    await Shell.Current.GoToAsync(destination);
-                });
-            }
+            SetupRecognizer("sv-SE");
         }
 
         [RelayCommand]
@@ -417,17 +403,8 @@ namespace AiNotes.ViewModels
 
         private SpeechConfig SetupSpeechRecognizer(string languageCode)
         {
-            SpeechConfig config;
-            try
-            {
-                config = SpeechConfig.FromSubscription(appSettings.AzureKeys.AzureSubscriptionKey, appSettings.AzureKeys.AzureRegion);
-                config.SpeechRecognitionLanguage = languageCode;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            var config = SpeechConfig.FromSubscription(appSettings.AzureKeys.AzureSubscriptionKey, appSettings.AzureKeys.AzureRegion);
+            config.SpeechRecognitionLanguage = languageCode;
 
             return config;
         }

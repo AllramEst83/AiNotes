@@ -1,5 +1,4 @@
 using AiNotes.ViewModels;
-using Newtonsoft.Json;
 namespace AiNotes.Pages;
 
 public partial class AiNotesPage : ContentPage
@@ -15,11 +14,11 @@ public partial class AiNotesPage : ContentPage
         BindingContext = viewModel;
     }
 
-    protected override async void OnAppearing()
+    protected override void OnAppearing()
     {
         base.OnAppearing();
 
-        await viewModel.Initiate();
+        viewModel.Initiate();
     }
 
     protected override void OnDisappearing()

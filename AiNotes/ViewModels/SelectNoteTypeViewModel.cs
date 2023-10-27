@@ -1,26 +1,24 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using AiNotes.Exstensions;
-using AiNotes.Models;
+﻿using AiNotes.Models;
 using AiNotes.Pages;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
-using CommunityToolkit.Maui.Alerts;
 
 namespace AiNotes.ViewModels
 {
     public partial class SelectNoteTypeViewModel : BaseViewModel
     {
         [ObservableProperty]
-        string selectedItem = null;
+        NoteType selectedItem;
         [ObservableProperty]
         bool isEnabled = false;
-        public ObservableCollection<string> MeetingTypes { get; } = new ObservableCollection<string>
+        public ObservableCollection<NoteType> MeetingTypes { get; } = new ObservableCollection<NoteType>
         {
-            NoteType.FrittAntecknande.GetDescription(),
-            NoteType.Samtal2Personer.GetDescription(),
-            NoteType.MoteFleraPersoner.GetDescription(),
-            NoteType.Lista.GetDescription()
+            NoteType.FrittAntecknande,
+            NoteType.Samtal2Personer,
+            NoteType.MoteFleraPersoner,
+            NoteType.Lista
         };
 
         public SelectNoteTypeViewModel() { }
@@ -28,7 +26,7 @@ namespace AiNotes.ViewModels
         [RelayCommand]
         async Task SelectMeetingType()
         {
-            if (!string.IsNullOrEmpty(SelectedItem))
+            if (SelectedItem != NoteType.None)
             {
                 var description = JsonConvert.SerializeObject(SelectedItem);
                 string destination = $"{nameof(AiNotesPage)}?noteDescription={Uri.EscapeDataString(description)}";
@@ -39,7 +37,7 @@ namespace AiNotes.ViewModels
 
         public void OnPickerChange()
         {
-            if (!string.IsNullOrEmpty(SelectedItem))
+            if (SelectedItem != NoteType.None)
             {
                 IsEnabled = true;
             }
@@ -47,7 +45,7 @@ namespace AiNotes.ViewModels
 
         public void Reset()
         {
-            SelectedItem = null;
+            SelectedItem = NoteType.None;
         }
     }
 }

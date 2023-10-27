@@ -23,5 +23,10 @@ namespace AiNotes.Managers
             AppResources.Culture = culture;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
         }
+
+        public string GetCurrentCulture()
+        {
+            return AppResources.Culture.Name;
+        }
     }
 }

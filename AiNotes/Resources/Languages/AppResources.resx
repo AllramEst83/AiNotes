@@ -118,46 +118,49 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="75ProcentTokenLimitMessage" xml:space="preserve">
-    <value>75% av polletterna har använts. Avsluta konversationen.</value>
+    <value>75% of the tokens have been used. End the conversation.</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value>Om oss</value>
+    <value>About us</value>
   </data>
   <data name="AppLanguagesSet" xml:space="preserve">
-    <value>App språket du valt har uppdaterats.</value>
+    <value>The app language has been updated</value>
   </data>
   <data name="Gpt3ErrorOccured" xml:space="preserve">
     <value>Error occured while trying to get response from GPT-3</value>
   </data>
   <data name="InterpreterTitle" xml:space="preserve">
-    <value>Tolken</value>
+    <value>Interpreter</value>
   </data>
   <data name="NoInternetConnection" xml:space="preserve">
-    <value>Inget internet! Vänligen koppla upp dig mot internet.</value>
+    <value>No internet! Please connect to the internet.</value>
   </data>
   <data name="NotesSummary" xml:space="preserve">
-    <value>Antecknings summering</value>
+    <value>Note summery</value>
   </data>
   <data name="NotesTitle" xml:space="preserve">
-    <value>Ai anteckningar</value>
+    <value>Ai notes</value>
+  </data>
+  <data name="NoteTypeTitle" xml:space="preserve">
+    <value>Note type</value>
   </data>
   <data name="NoTextFromResponse" xml:space="preserve">
-    <value>### &lt;span style="color:red; font-weight:bold;"&gt;Det fanns ingen text att summera eller så har det uppståt ett fel.&lt;/span&gt;</value>
+    <value>### &lt;span style="color:red; font-weight:bold;"&gt;An error has occured. There was nothing to summarize&lt;/span&gt;</value>
   </data>
   <data name="PreferredLanguage" xml:space="preserve">
-    <value>Välj de språk du föredrar.</value>
+    <value>Select desired language</value>
   </data>
   <data name="SelectAppLangugae" xml:space="preserve">
-    <value>Välj appens språk</value>
+    <value>Select the application language</value>
   </data>
   <data name="SelectLanguages" xml:space="preserve">
-    <value>Välj språk</value>
+    <value>Select language</value>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value>Inställningar</value>
+    <value>Settings</value>
   </data>
   <data name="ShareCrashLog" xml:space="preserve">
-    <value>Dela kraschlog</value>
+    <value>Share crash log</value>
   </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
@@ -166,18 +169,18 @@
     <value>Stop</value>
   </data>
   <data name="Summarizing" xml:space="preserve">
-    <value>Summerar...</value>
+    <value>Summarizing...</value>
   </data>
   <data name="ThemeSelector" xml:space="preserve">
-    <value>Tema väljare</value>
+    <value>Theme selector</value>
   </data>
   <data name="TokenDisplay" xml:space="preserve">
-    <value>polletter kvar</value>
+    <value>tokens left</value>
   </data>
   <data name="Tutorial" xml:space="preserve">
-    <value>Hur du använder appen</value>
+    <value>How to use the application</value>
   </data>
   <data name="TutorialTitle" xml:space="preserve">
-    <value>Instruktioner</value>
+    <value>Instructions</value>
   </data>
 </root>
