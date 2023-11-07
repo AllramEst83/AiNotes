@@ -126,6 +126,9 @@
   <data name="AppLanguagesSet" xml:space="preserve">
     <value>The app language has been updated</value>
   </data>
+  <data name="CopyToClipboard" xml:space="preserve">
+    <value>Copy to clipboard</value>
+  </data>
   <data name="Gpt3ErrorOccured" xml:space="preserve">
     <value>Error occured while trying to get response from GPT-3</value>
   </data>
@@ -147,8 +150,17 @@
   <data name="NoTextFromResponse" xml:space="preserve">
     <value>### &lt;span style="color:red; font-weight:bold;"&gt;An error has occured. There was nothing to summarize&lt;/span&gt;</value>
   </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
   <data name="PreferredLanguage" xml:space="preserve">
     <value>Select desired language</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Show preview</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
   </data>
   <data name="SelectAppLangugae" xml:space="preserve">
     <value>Select the application language</value>
@@ -175,7 +187,7 @@
     <value>Theme selector</value>
   </data>
   <data name="TokenDisplay" xml:space="preserve">
-    <value>tokens left</value>
+    <value>Tokens left</value>
   </data>
   <data name="Tutorial" xml:space="preserve">
     <value>How to use the application</value>

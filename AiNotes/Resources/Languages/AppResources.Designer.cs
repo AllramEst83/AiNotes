@@ -88,6 +88,15 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copy to clipboard.
+        /// </summary>
+        internal static string CopyToClipboard {
+            get {
+                return ResourceManager.GetString("CopyToClipboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error occured while trying to get response from GPT-3.
         /// </summary>
         internal static string Gpt3ErrorOccured {
@@ -151,11 +160,38 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pause.
+        /// </summary>
+        internal static string Pause {
+            get {
+                return ResourceManager.GetString("Pause", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select desired language.
         /// </summary>
         internal static string PreferredLanguage {
             get {
                 return ResourceManager.GetString("PreferredLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show preview.
+        /// </summary>
+        internal static string Preview {
+            get {
+                return ResourceManager.GetString("Preview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        internal static string Reset {
+            get {
+                return ResourceManager.GetString("Reset", resourceCulture);
             }
         }
         
@@ -232,7 +268,7 @@ namespace AiNotes.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to tokens left.
+        ///   Looks up a localized string similar to Tokens left.
         /// </summary>
         internal static string TokenDisplay {
             get {

@@ -22,17 +22,17 @@
 
             <!-- Copy to Clipboard Button -->
             <Button 
-            Text="Copy to Clipboard"
+            Text="{translator:Translate CopyToClipboard}"
             Command="{Binding CopyToClipboardCommand}" 
             HorizontalOptions="Center"
             VerticalOptions="Center"
             Grid.Column="0" 
-                    BackgroundColor="{StaticResource PrimaryAccentTwo}"
+            BackgroundColor="{StaticResource PrimaryAccentTwo}"
             TextColor="{StaticResource Black}"/>
 
             <!-- Show Preview Button -->
             <Button 
-            Text="Show preview"
+            Text="{translator:Translate Preview}"
             Command="{Binding ShowPreviewCommand}" 
             HorizontalOptions="Center"
             VerticalOptions="Center"

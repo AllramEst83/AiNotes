@@ -46,8 +46,14 @@ namespace AiNotes.ViewModels
         bool isBusy;
         [ObservableProperty]
         string buttonText = "Start";
-        [ObservableProperty]
-        string tokenCounterDisplay = "-";
+
+
+        private double _currentProgress;
+        public double CurrentProgress
+        {
+            get => _currentProgress;
+            set => SetProperty(ref _currentProgress, value);
+        }
 
         public AiNotesViewModel(
             IChatGptService chatGptService,
@@ -240,7 +246,7 @@ namespace AiNotes.ViewModels
             _isRecognizerActive = false;
             ButtonText = LocalizationResourceManager.Instance["Start"] as string;
             transcriptionManager.Clear();
-            TokenCounterDisplay = "-";
+            CurrentProgress = 0;
 
             try
             {
@@ -370,11 +376,12 @@ namespace AiNotes.ViewModels
         {
             var tokenCount = transcriptionManager.GetTokenCount();
             var maxTokens = appSettings.ChatGptSettings.MaxTokens;
+
+            var targetProgress = CalculateUsedPercentage(tokenCount, maxTokens);
+
+            await SmoothProgressUpdate(targetProgress);
+
             var seventyFivePercentThreshold = maxTokens * 0.75;
-
-            // Updating TokenCounterDisplay only once to avoid redundancy
-            TokenCounterDisplay = $"{Math.Min(tokenCount, maxTokens)}/{maxTokens} {LocalizationResourceManager.Instance["TokenDisplay"] as string}";
-
             if (tokenCount >= maxTokens)
             {
                 await ToggleTranscription();
@@ -384,6 +391,37 @@ namespace AiNotes.ViewModels
                 var message = LocalizationResourceManager.Instance["75ProcentTokenLimitMessage"] as string;
                 ShowToastMessage(message);
             }
+        }
+
+        private async Task SmoothProgressUpdate(double targetProgress)
+        {
+            const double incrementThreshold = 0.005;
+            while (_currentProgress < targetProgress - incrementThreshold)
+            {
+                double increment = (targetProgress - _currentProgress) / 5;
+                double nextProgress = _currentProgress + increment;
+
+                _currentProgress = nextProgress;
+                OnPropertyChanged(nameof(CurrentProgress));
+                await Task.Delay(20);
+            }
+
+            _currentProgress = Math.Round(targetProgress, 2);
+            OnPropertyChanged(nameof(CurrentProgress));
+        }
+
+        private static double CalculateUsedPercentage(int tokenCount, int maxTokens)
+        {
+            // Calculate the used percentage
+            double usedPercentage = (double)tokenCount / maxTokens;
+
+            // Ensure the value is within the progress bar's scale of 0.01 to 1 (or 0.99)
+            double progressBarValue = Math.Max(0.01, Math.Min(1, usedPercentage));
+
+            // If you want to round to nearest 0.01 for granularity
+            progressBarValue = Math.Round(progressBarValue, 2);
+
+            return progressBarValue;
         }
 
         private void ShowToastMessage(string message)
