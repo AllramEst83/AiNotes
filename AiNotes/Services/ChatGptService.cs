@@ -61,7 +61,6 @@ namespace AiNotes.Services
                 string jsonResponse = await response.Content.ReadAsStringAsync();
                 JObject parsedResponse = JObject.Parse(jsonResponse);
                 return parsedResponse["choices"][0]["message"]["content"].ToString();
-
             }
             else
             {

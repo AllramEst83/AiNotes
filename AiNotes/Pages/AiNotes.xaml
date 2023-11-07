@@ -21,77 +21,90 @@
 
         <!-- Animation View -->
         <skia:SKLottieView
-        Grid.Row="0"
-        Grid.RowSpan="2"
-        IsAnimationEnabled="{Binding AnimationIsActive}"
-        IsVisible="{Binding AnimationIsActive}"
-        Source="lottieanimation.json"
-        RepeatCount="-1"
-        RepeatMode="Restart"
-        HeightRequest="350"
-        WidthRequest="350"
-        HorizontalOptions="Center"
-        VerticalOptions="Center" />
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                IsAnimationEnabled="{Binding AnimationIsActive}"
+                IsVisible="{Binding AnimationIsActive}"
+                Source="lottieanimation.json"
+                RepeatCount="-1"
+                RepeatMode="Restart"
+                HeightRequest="350"
+                WidthRequest="350"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
 
         <!-- Start Button -->
         <Button
-    Grid.Row="0"
-    Grid.RowSpan="2"
-    Style="{StaticResource SummaryButtonStyle}"
-    Text="{Binding ButtonText}"
-    Command="{Binding ToggleTranscriptionCommand}"
-    HorizontalOptions="Center"
-    VerticalOptions="Center"
-    IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"
-    WidthRequest="160"
-    HeightRequest="160"
-    CornerRadius="80"/>
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Style="{StaticResource SummaryButtonStyle}"
+            Text="{Binding ButtonText}"
+            Command="{Binding ToggleTranscriptionCommand}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"
+            WidthRequest="160"
+            HeightRequest="160"
+            CornerRadius="80"/>
 
         <!-- Activity Indicator -->
         <ActivityIndicator 
-    Grid.Row="0"
-    Grid.RowSpan="2"
-    WidthRequest="310"
-    HeightRequest="310"
-    IsVisible="{Binding IsBusy}"
-    IsRunning="{Binding IsBusy}"
-    HorizontalOptions="Center"
-    VerticalOptions="Center" />
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                WidthRequest="310"
+                HeightRequest="310"
+                IsVisible="{Binding IsBusy}"
+                IsRunning="{Binding IsBusy}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
 
-        <!-- Token Counter -->
-
-        <Border 
-        Stroke="#bffdbf"
-        StrokeThickness="0"
-        StrokeShape="RoundRectangle 10,10,10,10"
-        Background="#2B0B98"
-        Padding="0"
-        HorizontalOptions="Center"
-        VerticalOptions="Start">
+        <!-- Progress bar -->
+        <StackLayout
+            HorizontalOptions="FillAndExpand"
+            Padding="15" 
+            VerticalOptions="Start"
+            Margin="0,40,0,0">
 
             <Label
-               Grid.Row="0"
-               Grid.Column="1"
-               Text="{Binding TokenCounterDisplay}"
-               HorizontalOptions="Center"
-               VerticalOptions="Start"
-               Padding="10"
-               BackgroundColor="#fdfdbf"
-               TextColor="Black"/>
-        </Border>
- 
+                Text="{translator:Translate TokenDisplay}"
+                HorizontalOptions="Center"
+                TextColor="Black"
+                FontAttributes="Bold"
+                Margin="0,0,0,5"/>
+
+            <Border 
+                Stroke="Transparent"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 15,15,15,15"
+                Background="#2B0B98"
+                Padding="0"
+                VerticalOptions="Start"
+                    HeightRequest="20"
+                  HorizontalOptions="FillAndExpand">
+
+                <ProgressBar
+                x:Name="progressBar"
+                Progress="{Binding CurrentProgress, Mode=TwoWay}"
+                HeightRequest="20"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center"
+                BackgroundColor="{StaticResource Tertiary}"
+                ProgressColor="{StaticResource Primary}"/>
+            </Border>
+        </StackLayout> 
 
         <!-- Reset Button -->
         <Button
-    Grid.Row="1"
-    Style="{StaticResource ResetButtonStyle}"
-    VerticalOptions="End"
-    HorizontalOptions="End"
-    Command="{Binding ResetCommand}"
-    Text="Reset"
-    WidthRequest="50"
-    HeightRequest="50">
+            Grid.Row="1"
+            Style="{StaticResource ResetButtonStyle}"
+            VerticalOptions="End"
+            HorizontalOptions="End"
+            Command="{Binding ResetCommand}"
+            Text="{translator:Translate Reset}"
+            WidthRequest="50"
+            HeightRequest="50">
         </Button>
+
     </Grid>
 
 </ContentPage>

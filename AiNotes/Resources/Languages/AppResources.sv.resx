@@ -126,6 +126,9 @@
   <data name="AppLanguagesSet" xml:space="preserve">
     <value>App språket du valt har uppdaterats.</value>
   </data>
+  <data name="CopyToClipboard" xml:space="preserve">
+    <value>Kopiera till urklipp</value>
+  </data>
   <data name="Gpt3ErrorOccured" xml:space="preserve">
     <value>Error occured while trying to get response from GPT-3</value>
   </data>
@@ -147,8 +150,17 @@
   <data name="NoTextFromResponse" xml:space="preserve">
     <value>### &lt;span style="color:red; font-weight:bold;"&gt;Det fanns ingen text att summera eller så har det uppståt ett fel.&lt;/span&gt;</value>
   </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Paus</value>
+  </data>
   <data name="PreferredLanguage" xml:space="preserve">
     <value>Välj de språk du föredrar.</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Granska</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Rensa</value>
   </data>
   <data name="SelectAppLangugae" xml:space="preserve">
     <value>Välj appens språk</value>
@@ -175,7 +187,7 @@
     <value>Tema väljare</value>
   </data>
   <data name="TokenDisplay" xml:space="preserve">
-    <value>polletter kvar</value>
+    <value>Polletter kvar</value>
   </data>
   <data name="Tutorial" xml:space="preserve">
     <value>Hur du använder appen</value>
