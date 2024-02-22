@@ -18,8 +18,8 @@
     <ApplicationId>com.codedbykay.ainotes</ApplicationId>
     <ApplicationIdGuid>86d1c09f-5f98-4b75-898a-6d26d47e9d82</ApplicationIdGuid>
     <!-- Versions -->
-    <ApplicationDisplayVersion>1.1</ApplicationDisplayVersion>
-    <ApplicationVersion>1.1</ApplicationVersion>
+    <ApplicationDisplayVersion>2</ApplicationDisplayVersion>
+    <ApplicationVersion>2</ApplicationVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
